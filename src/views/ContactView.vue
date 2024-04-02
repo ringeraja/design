@@ -6,7 +6,7 @@
       <div class="col-lg-6 mx-auto">
         <p class="fs-5 mb-4">Always taking in mind the freshest and latest trends.</p>
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-          <TheForm></TheForm>
+            <TheForm></TheForm>
         </div>
       </div>
       <div class="py-5"></div>
@@ -38,18 +38,16 @@
     </div>
   </div>
   <div class="container .bg-dark.bg-gradient px-4 py-5"></div>
+  <div class="container-flex customSection">
+    <h2>Test</h2>
+  </div>
 </template>
+
 <script setup lang="ts">
-import TheForm from '../elements/TheForm.vue';
+import TheForm from '@/elements/TheForm.vue';
 </script>
+
 <style scoped>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
 .roundClass {
   border-radius: 30px;
   color: #9ef01a;
