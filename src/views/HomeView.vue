@@ -2,12 +2,11 @@
   <div class="customSection text-secondary px-4 py-5 text-center">
     <div class="py-5"></div>
     <div class="py-5">
-      <h1 class="display-5 fw-bold text-white">Agencija za Web Dizajn</h1>
+      <h1 class="display-5 fw-bold text-white">Web Dizajn Agencija</h1>
       <div class="col-lg-6 mx-auto">
         <p class="fs-5 mb-4">Always taking in mind the freshest and latest trends.</p>
-        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <div class="d-flex justify-content-center myClassFix">
           <SpaceButton :title="'Saznaj više'" :linkTo="'/about'"></SpaceButton>
-          <SpaceButton :title="'Ostale usluge'" :linkTo="'/about'"></SpaceButton>
         </div>
       </div>
       <div class="py-5"></div>
@@ -47,6 +46,11 @@ import SpaceButton from '@/elements/SpaceButton.vue';
 </script>
 
 <style scoped>
+.myClassFix {
+  position: relative; /* Ensure position is relative */
+  overflow: hidden; /* Hide anything overflowing */
+}
+
 .roundClass {
   border-radius: 30px;
   color: #9ef01a;

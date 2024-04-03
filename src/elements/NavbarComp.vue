@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar navbar-expand-sm navbar-dark myColor" aria-label="Third navbar example">
-    <div class="container-fluid">
+    <div class="container">
       <LogoComp></LogoComp>
       <button
         class="navbar-toggler"
@@ -51,17 +51,21 @@
   </nav>
 </template>
 <script setup lang="ts">
+
+import { ref } from 'vue';
+
 import LogoComp from './LogoComp.vue';
 
+const mobNavVisible = ref(false);
 </script>
 <style scoped>
 
 .customSearch {
-  width:307px;
+  max-width:307px;
 }
 
 nav {
-  padding: 30px;
+  padding: 30px 15px;
 }
 
 nav a {
@@ -89,5 +93,9 @@ nav a.router-link-exact-active {
   .navbar-nav {
   padding-top: 12px;
 }
+}
+@media (min-width: 576px)
+.navbar-expand-sm .navbar-toggler {
+    display: none;
 }
 </style>
