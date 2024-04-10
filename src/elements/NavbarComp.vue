@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar navbar-expand-sm navbar-dark myColor" aria-label="Third navbar example">
-    <div class="container">
+    <div class="container-fluid">
       <LogoComp></LogoComp>
       <button
         class="navbar-toggler"
@@ -8,15 +8,19 @@
         data-bs-toggle="collapse"
         data-bs-target="#navbarsExample03"
         aria-controls="navbarsExample03"
-        aria-expanded="false"
+        :aria-expanded="navIsVisibleComputed ? 'true' : 'false'"
         aria-label="Toggle navigation"
+        @click="toggleMobileMenu"
       >
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarsExample03">
         <ul class="navbar-nav me-auto mb-2 mb-sm-0">
           <li class="nav-item">
-            <router-link to="/" aria-current="page" class="nav-link text-nowrap active"
+            <router-link @click="toggleMobileMenu"
+            to="/" aria-current="page" class="nav-link text-nowrap active"
+            data-toggle="collapse"
+            data-target=".navbar-collapse"
               >Početna</router-link
             >
           </li>
@@ -35,10 +39,13 @@
             </ul>
           </li>
           <li class="nav-item">
-            <router-link to="/about" class="nav-link text-nowrap">O nama</router-link>
+            <router-link
+             @click="toggleMobileMenu"
+             to="/about" class="nav-link text-nowrap">O nama</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/kontakt" class="nav-link text-nowrap">Kontakt</router-link>
+            <router-link @click="navIsVisible = false"
+            to="/kontakt" class="nav-link text-nowrap">Kontakt</router-link>
           </li>
         </ul>
         <form role="search" class="d-block d-sm-none">
@@ -52,11 +59,35 @@
 </template>
 <script setup lang="ts">
 
-import { ref } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 
 import LogoComp from './LogoComp.vue';
 
-const mobNavVisible = ref(false);
+const welcomeMessage = ref('Welcome to NDesign!');
+const navIsVisible = ref<boolean>(false);
+
+function printWelcomeMessage(param: string) {
+  console.log(param);
+}
+
+const navIsVisibleComputed = computed<boolean>(() => {
+  if (navIsVisible.value) {
+    return true;
+  } return false;
+});
+
+function toggleMobileMenu() {
+  navIsVisible.value = !navIsVisible.value;
+  console.log(navIsVisibleComputed.value);
+}
+
+onMounted(() => {
+  setTimeout(() => {
+    console.log(navIsVisibleComputed.value);
+    console.log(navIsVisible.value);
+  }, 1000);
+});
+
 </script>
 <style scoped>
 

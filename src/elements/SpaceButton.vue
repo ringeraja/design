@@ -1,5 +1,5 @@
 <template>
-<router-link :to="linkTo">
+<router-link :to="linkTo" class="myClassFix">
     <button type="button" class="btn">
     <strong>{{title}}</strong>
     <div id="container-stars">
@@ -34,6 +34,11 @@ newObject.linkto = '/new-link';
 
 </script>
 <style scoped>
+.myClassFix {
+  position: relative; /* Ensure position is relative */
+  overflow: hidden; /* Hide anything overflowing */
+}
+
 .btn {
   display: flex;
   justify-content: center;

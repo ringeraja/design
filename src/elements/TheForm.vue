@@ -17,7 +17,7 @@
 </template>
 <style scoped>
 .form-container {
-  width: 400px;
+  max-width: 400px;
   background: linear-gradient(#212121, #212121) padding-box,
     linear-gradient(145deg, transparent 35%, #aaf683, #40c9ff) border-box;
   border: 2px solid transparent;
